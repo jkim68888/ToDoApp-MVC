@@ -13,5 +13,7 @@ class EditViewController: UIViewController {
         super.viewDidLoad()
     }
 
-
+	@IBAction func completeButtonTapped(_ sender: UIButton) {
+		navigationController?.popViewController(animated: true)
+	}
 }

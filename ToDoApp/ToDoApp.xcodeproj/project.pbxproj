@@ -16,6 +16,8 @@
 		9A6C536128F97E5C00B13BF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C535F28F97E5C00B13BF7 /* LaunchScreen.storyboard */; };
 		9A6C536C28F9831F00B13BF7 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C536B28F9831F00B13BF7 /* AddViewController.swift */; };
 		9A6C536E28F9848300B13BF7 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C536D28F9848300B13BF7 /* EditViewController.swift */; };
+		9A6C537028F98CFD00B13BF7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C536F28F98CFD00B13BF7 /* CustomTableViewCell.swift */; };
+		9A6C537328F996E700B13BF7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C537228F996E700B13BF7 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		9A6C536228F97E5C00B13BF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A6C536B28F9831F00B13BF7 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		9A6C536D28F9848300B13BF7 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		9A6C536F28F98CFD00B13BF7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		9A6C537228F996E700B13BF7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 		9A6C535028F97E5B00B13BF7 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				9A6C537128F996CD00B13BF7 /* Extensions */,
 				9A6C536A28F97F7C00B13BF7 /* Model */,
 				9A6C536928F97F7800B13BF7 /* View */,
 				9A6C536828F97F6900B13BF7 /* Controllers */,
@@ -89,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				9A6C535728F97E5B00B13BF7 /* Main.storyboard */,
+				9A6C536F28F98CFD00B13BF7 /* CustomTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -98,6 +104,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9A6C537128F996CD00B13BF7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9A6C537228F996E700B13BF7 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,8 +188,10 @@
 				9A6C536C28F9831F00B13BF7 /* AddViewController.swift in Sources */,
 				9A6C535628F97E5B00B13BF7 /* HomeViewController.swift in Sources */,
 				9A6C536E28F9848300B13BF7 /* EditViewController.swift in Sources */,
+				9A6C537028F98CFD00B13BF7 /* CustomTableViewCell.swift in Sources */,
 				9A6C535228F97E5B00B13BF7 /* AppDelegate.swift in Sources */,
 				9A6C535428F97E5B00B13BF7 /* SceneDelegate.swift in Sources */,
+				9A6C537328F996E700B13BF7 /* UIViewExtension.swift in Sources */,
 				9A6C535C28F97E5B00B13BF7 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
