@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A1FCCA328FE3958001B1584 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1FCCA228FE3957001B1584 /* UIColorExtension.swift */; };
 		9A6C535228F97E5B00B13BF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C535128F97E5B00B13BF7 /* AppDelegate.swift */; };
 		9A6C535428F97E5B00B13BF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C535328F97E5B00B13BF7 /* SceneDelegate.swift */; };
 		9A6C535628F97E5B00B13BF7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C535528F97E5B00B13BF7 /* HomeViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A1FCCA228FE3957001B1584 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		9A6C534E28F97E5B00B13BF7 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6C535128F97E5B00B13BF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A6C535328F97E5B00B13BF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				9A6C537228F996E700B13BF7 /* UIViewExtension.swift */,
+				9A1FCCA228FE3957001B1584 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				9A6C536E28F9848300B13BF7 /* EditViewController.swift in Sources */,
 				9A6C537028F98CFD00B13BF7 /* CustomTableViewCell.swift in Sources */,
 				9A6C535228F97E5B00B13BF7 /* AppDelegate.swift in Sources */,
+				9A1FCCA328FE3958001B1584 /* UIColorExtension.swift in Sources */,
 				9A6C535428F97E5B00B13BF7 /* SceneDelegate.swift in Sources */,
 				9A6C537328F996E700B13BF7 /* UIViewExtension.swift in Sources */,
 				9A6C535C28F97E5B00B13BF7 /* Model.xcdatamodeld in Sources */,

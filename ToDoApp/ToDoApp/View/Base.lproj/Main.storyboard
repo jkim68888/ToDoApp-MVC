@@ -139,21 +139,113 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0p-ki-8mK">
-                                <rect key="frame" x="174" y="702" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="중요도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0p-ki-8mK">
+                                <rect key="frame" x="15.000000000000004" y="156.66666666666666" width="57.333333333333343" height="26.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="할일 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnO-o2-5b2">
+                                <rect key="frame" x="15" y="29.999999999999996" width="103" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRX-Oi-Jyg">
+                                <rect key="frame" x="347" y="30" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="Re7-AO-lvX"/>
+                                    <constraint firstAttribute="height" constant="28" id="rWt-s7-ZkH"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="close"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="OwZ-dd-LTz" eventType="touchUpInside" id="Ago-6M-PKj"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8gH-Pl-tPh">
+                                <rect key="frame" x="15" y="88.666666666666671" width="360" height="43.000000000000014"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="6HN-yj-jDM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iFE-Kz-cqD">
+                                <rect key="frame" x="15" y="208" width="360" height="46"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhl-CZ-v4H">
+                                        <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="46"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="높음">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7K-FB-Fi9">
+                                        <rect key="frame" x="126.66666666666666" y="0.0" width="106.66666666666666" height="46"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="보통">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryp-rT-inO">
+                                        <rect key="frame" x="253.33333333333329" y="0.0" width="106.66666666666666" height="46"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="낮음">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="UNs-hT-bT0"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIa-5L-OGu">
+                                <rect key="frame" x="15" y="279" width="360" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Aq1-jD-H7a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="저장">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QnD-zh-px0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qnO-o2-5b2" firstAttribute="top" secondItem="YID-8h-aYM" secondAttribute="top" constant="30" id="5uL-4I-RLt"/>
+                            <constraint firstItem="8gH-Pl-tPh" firstAttribute="top" secondItem="qnO-o2-5b2" secondAttribute="bottom" constant="25" id="6kY-Rn-5PE"/>
+                            <constraint firstItem="hRX-Oi-Jyg" firstAttribute="top" secondItem="YID-8h-aYM" secondAttribute="top" constant="30" id="7zK-8X-08Z"/>
+                            <constraint firstAttribute="trailing" secondItem="hRX-Oi-Jyg" secondAttribute="trailing" constant="15" id="El0-wW-65b"/>
+                            <constraint firstItem="QnD-zh-px0" firstAttribute="trailing" secondItem="8gH-Pl-tPh" secondAttribute="trailing" constant="15" id="EuO-wv-h14"/>
+                            <constraint firstItem="8gH-Pl-tPh" firstAttribute="leading" secondItem="QnD-zh-px0" secondAttribute="leading" constant="15" id="FYM-hN-cGn"/>
+                            <constraint firstItem="iFE-Kz-cqD" firstAttribute="leading" secondItem="QnD-zh-px0" secondAttribute="leading" constant="15" id="Mfp-gN-Obp"/>
+                            <constraint firstItem="iFE-Kz-cqD" firstAttribute="top" secondItem="f0p-ki-8mK" secondAttribute="bottom" constant="25" id="Npb-8U-rUx"/>
+                            <constraint firstItem="f0p-ki-8mK" firstAttribute="leading" secondItem="QnD-zh-px0" secondAttribute="leading" constant="15" id="PY8-Wz-7q9"/>
+                            <constraint firstItem="f0p-ki-8mK" firstAttribute="top" secondItem="8gH-Pl-tPh" secondAttribute="bottom" constant="25" id="SYS-9Y-AXa"/>
+                            <constraint firstItem="qnO-o2-5b2" firstAttribute="leading" secondItem="YID-8h-aYM" secondAttribute="leading" constant="15" id="WUK-33-iFj"/>
+                            <constraint firstItem="lIa-5L-OGu" firstAttribute="leading" secondItem="QnD-zh-px0" secondAttribute="leading" constant="15" id="Yyq-V9-NEm"/>
+                            <constraint firstItem="QnD-zh-px0" firstAttribute="trailing" secondItem="iFE-Kz-cqD" secondAttribute="trailing" constant="15" id="k0i-oA-pE0"/>
+                            <constraint firstItem="lIa-5L-OGu" firstAttribute="top" secondItem="iFE-Kz-cqD" secondAttribute="bottom" constant="25" id="mvt-TP-zBh"/>
+                            <constraint firstItem="QnD-zh-px0" firstAttribute="trailing" secondItem="lIa-5L-OGu" secondAttribute="trailing" constant="15" id="y4Y-r6-w7r"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addTaskTextField" destination="8gH-Pl-tPh" id="Njl-sS-5ji"/>
+                        <outlet property="highPriorityButton" destination="rhl-CZ-v4H" id="o4a-Cd-zkd"/>
+                        <outlet property="lowPriorityButton" destination="ryp-rT-inO" id="BrM-fn-g7r"/>
+                        <outlet property="normalPriorityButton" destination="G7K-FB-Fi9" id="29A-tr-evY"/>
+                        <outlet property="saveButton" destination="lIa-5L-OGu" id="BwH-5G-O9d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukb-eX-MMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2243" y="-325"/>
+            <point key="canvasLocation" x="2241.5384615384614" y="-325.59241706161134"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="3vO-xD-Vcv">
@@ -216,6 +308,7 @@
     </scenes>
     <resources>
         <image name="add" width="46.333332061767578" height="46.333332061767578"/>
+        <image name="close" width="23.333333969116211" height="23.333333969116211"/>
         <image name="high" width="22" height="22"/>
         <image name="illust" width="375" height="388.66665649414062"/>
         <image name="logo" width="186.5" height="28"/>
