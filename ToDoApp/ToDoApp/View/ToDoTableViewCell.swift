@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class ToDoTableViewCell: UITableViewCell {
 	@IBOutlet weak var checkImageView: UIImageView!
 	@IBOutlet weak var taskLabel: UILabel!
 	@IBOutlet weak var taskPriorityImageView: UIImageView!

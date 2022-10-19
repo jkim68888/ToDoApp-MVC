@@ -13,16 +13,23 @@ class HomeViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		navigationController?.isNavigationBarHidden = true
+		setTableView()
+		setUI()
+	}
+	
+	func setTableView() {
 		taskTableView.delegate = self
 		taskTableView.dataSource = self
-		setUI()
 	}
 
 	func setUI() {
+		navigationController?.isNavigationBarHidden = true
+		
 		emtyView.translatesAutoresizingMaskIntoConstraints = false
 		emtyView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		emtyView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		
+		emtyView.isHidden = true
 	}
 	
 	@IBAction func editButtonTapped(_ sender: UIButton) {
@@ -45,7 +52,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoTableViewCell", for: indexPath) as? ToDoTableViewCell else { return UITableViewCell() }
+		
+		cell.selectionStyle = .none
 		
 		return cell
 		

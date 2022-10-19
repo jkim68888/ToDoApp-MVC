@@ -8,21 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		9A1FCCA328FE3958001B1584 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1FCCA228FE3957001B1584 /* UIColorExtension.swift */; };
+		9A1FCCD22900A607001B1584 /* ToDoData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1FCCD02900A607001B1584 /* ToDoData+CoreDataClass.swift */; };
+		9A1FCCD32900A607001B1584 /* ToDoData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1FCCD12900A607001B1584 /* ToDoData+CoreDataProperties.swift */; };
+		9A1FCCD52900AAB1001B1584 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1FCCD42900AAB1001B1584 /* CoreDataManager.swift */; };
 		9A6C535228F97E5B00B13BF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C535128F97E5B00B13BF7 /* AppDelegate.swift */; };
 		9A6C535428F97E5B00B13BF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C535328F97E5B00B13BF7 /* SceneDelegate.swift */; };
 		9A6C535628F97E5B00B13BF7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C535528F97E5B00B13BF7 /* HomeViewController.swift */; };
 		9A6C535928F97E5B00B13BF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C535728F97E5B00B13BF7 /* Main.storyboard */; };
-		9A6C535C28F97E5B00B13BF7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C535A28F97E5B00B13BF7 /* Model.xcdatamodeld */; };
+		9A6C535C28F97E5B00B13BF7 /* ToDoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C535A28F97E5B00B13BF7 /* ToDoApp.xcdatamodeld */; };
 		9A6C535E28F97E5C00B13BF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C535D28F97E5C00B13BF7 /* Assets.xcassets */; };
 		9A6C536128F97E5C00B13BF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C535F28F97E5C00B13BF7 /* LaunchScreen.storyboard */; };
 		9A6C536C28F9831F00B13BF7 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C536B28F9831F00B13BF7 /* AddViewController.swift */; };
 		9A6C536E28F9848300B13BF7 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C536D28F9848300B13BF7 /* EditViewController.swift */; };
-		9A6C537028F98CFD00B13BF7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C536F28F98CFD00B13BF7 /* CustomTableViewCell.swift */; };
+		9A6C537028F98CFD00B13BF7 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C536F28F98CFD00B13BF7 /* ToDoTableViewCell.swift */; };
 		9A6C537328F996E700B13BF7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C537228F996E700B13BF7 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9A1FCCA228FE3957001B1584 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		9A1FCCD02900A607001B1584 /* ToDoData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9A1FCCD12900A607001B1584 /* ToDoData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9A1FCCD42900AAB1001B1584 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		9A6C534E28F97E5B00B13BF7 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6C535128F97E5B00B13BF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A6C535328F97E5B00B13BF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,7 +40,7 @@
 		9A6C536228F97E5C00B13BF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A6C536B28F9831F00B13BF7 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		9A6C536D28F9848300B13BF7 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		9A6C536F28F98CFD00B13BF7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		9A6C536F28F98CFD00B13BF7 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		9A6C537228F996E700B13BF7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,7 +83,7 @@
 				9A6C535D28F97E5C00B13BF7 /* Assets.xcassets */,
 				9A6C535F28F97E5C00B13BF7 /* LaunchScreen.storyboard */,
 				9A6C536228F97E5C00B13BF7 /* Info.plist */,
-				9A6C535A28F97E5B00B13BF7 /* Model.xcdatamodeld */,
+				9A6C535A28F97E5B00B13BF7 /* ToDoApp.xcdatamodeld */,
 			);
 			path = ToDoApp;
 			sourceTree = "<group>";
@@ -96,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				9A6C535728F97E5B00B13BF7 /* Main.storyboard */,
-				9A6C536F28F98CFD00B13BF7 /* CustomTableViewCell.swift */,
+				9A6C536F28F98CFD00B13BF7 /* ToDoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -104,6 +110,9 @@
 		9A6C536A28F97F7C00B13BF7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9A1FCCD02900A607001B1584 /* ToDoData+CoreDataClass.swift */,
+				9A1FCCD12900A607001B1584 /* ToDoData+CoreDataProperties.swift */,
+				9A1FCCD42900AAB1001B1584 /* CoreDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,12 +200,15 @@
 				9A6C536C28F9831F00B13BF7 /* AddViewController.swift in Sources */,
 				9A6C535628F97E5B00B13BF7 /* HomeViewController.swift in Sources */,
 				9A6C536E28F9848300B13BF7 /* EditViewController.swift in Sources */,
-				9A6C537028F98CFD00B13BF7 /* CustomTableViewCell.swift in Sources */,
+				9A1FCCD32900A607001B1584 /* ToDoData+CoreDataProperties.swift in Sources */,
+				9A1FCCD22900A607001B1584 /* ToDoData+CoreDataClass.swift in Sources */,
+				9A6C537028F98CFD00B13BF7 /* ToDoTableViewCell.swift in Sources */,
+				9A1FCCD52900AAB1001B1584 /* CoreDataManager.swift in Sources */,
 				9A6C535228F97E5B00B13BF7 /* AppDelegate.swift in Sources */,
 				9A1FCCA328FE3958001B1584 /* UIColorExtension.swift in Sources */,
 				9A6C535428F97E5B00B13BF7 /* SceneDelegate.swift in Sources */,
 				9A6C537328F996E700B13BF7 /* UIViewExtension.swift in Sources */,
-				9A6C535C28F97E5B00B13BF7 /* Model.xcdatamodeld in Sources */,
+				9A6C535C28F97E5B00B13BF7 /* ToDoApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6RZ3FF956G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -374,6 +387,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6RZ3FF956G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -422,13 +436,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9A6C535A28F97E5B00B13BF7 /* Model.xcdatamodeld */ = {
+		9A6C535A28F97E5B00B13BF7 /* ToDoApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				9A6C535B28F97E5B00B13BF7 /* ToDoApp.xcdatamodel */,
 			);
 			currentVersion = 9A6C535B28F97E5B00B13BF7 /* ToDoApp.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			path = ToDoApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
