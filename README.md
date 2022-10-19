@@ -1,2 +1,2 @@
 # ToDoApp-MVC
-ios 투두리스트 앱 - MVC패턴
+ios 투두리스트 앱
