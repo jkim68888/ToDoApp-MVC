@@ -90,7 +90,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88y-Hh-1lA">
-                                <rect key="frame" x="320" y="759" width="55" height="55"/>
+                                <rect key="frame" x="320" y="750" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="YWE-1u-Ric"/>
                                     <constraint firstAttribute="height" constant="55" id="bvX-MB-xlz"/>
@@ -112,7 +112,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="88y-Hh-1lA" secondAttribute="trailing" constant="15" id="UAy-pV-xC4"/>
                             <constraint firstItem="cBf-sM-mkz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="Ucq-9V-Orc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kED-Xm-tMs" secondAttribute="trailing" constant="15" id="apX-a5-eES"/>
-                            <constraint firstAttribute="bottom" secondItem="88y-Hh-1lA" secondAttribute="bottom" constant="30" id="oZ3-4N-S0f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="88y-Hh-1lA" secondAttribute="bottom" constant="5" id="oZ3-4N-S0f"/>
                             <constraint firstItem="exw-3y-zh3" firstAttribute="top" secondItem="cBf-sM-mkz" secondAttribute="bottom" constant="25" id="scb-1J-raI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="exw-3y-zh3" secondAttribute="trailing" id="wvF-ZH-65j"/>
                             <constraint firstItem="exw-3y-zh3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yOd-30-QWf"/>

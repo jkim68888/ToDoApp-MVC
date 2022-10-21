@@ -11,10 +11,19 @@ class HomeViewController: UIViewController {
 	@IBOutlet weak var taskTableView: UITableView!
 	@IBOutlet weak var emtyView: UIImageView!
 	
+	// 모델(저장 데이터를 관리하는 코어데이터)
+	let toDoManager = CoreDataManager.shared
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setTableView()
 		setUI()
+	}
+	
+	// 화면에 다시 진입할때마다 테이블뷰 리로드
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		taskTableView.reloadData()
 	}
 	
 	func setTableView() {
@@ -29,7 +38,12 @@ class HomeViewController: UIViewController {
 		emtyView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		emtyView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 		
-		emtyView.isHidden = true
+		if toDoManager.getToDoData().isEmpty {
+			emtyView.isHidden = false
+		} else {
+			emtyView.isHidden = true
+		}
+		
 	}
 	
 	@IBAction func editButtonTapped(_ sender: UIButton) {
@@ -46,7 +60,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
-		return 5
+		return toDoManager.getToDoData().count
 		
 	}
 	
