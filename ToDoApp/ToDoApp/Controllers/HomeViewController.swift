@@ -38,10 +38,14 @@ class HomeViewController: UIViewController {
 		emtyView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		emtyView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 		
+		print("홈뷰", #function, toDoManager.getToDoData())
+		
 		if toDoManager.getToDoData().isEmpty {
 			emtyView.isHidden = false
+			taskTableView.isHidden = true
 		} else {
 			emtyView.isHidden = true
+			taskTableView.isHidden = false
 		}
 	}
 	
@@ -66,6 +70,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoTableViewCell", for: indexPath) as? ToDoTableViewCell else { return UITableViewCell() }
+		
+		let toDoData = toDoManager.getToDoData()
+		cell.toDoData = toDoData[indexPath.row]
 		
 		cell.selectionStyle = .none
 		

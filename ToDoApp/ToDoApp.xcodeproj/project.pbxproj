@@ -21,6 +21,7 @@
 		9A6C536E28F9848300B13BF7 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C536D28F9848300B13BF7 /* EditViewController.swift */; };
 		9A6C537028F98CFD00B13BF7 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C536F28F98CFD00B13BF7 /* ToDoTableViewCell.swift */; };
 		9A6C537328F996E700B13BF7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C537228F996E700B13BF7 /* UIViewExtension.swift */; };
+		9AAB90CE2902C7B3004141A4 /* ToDoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB90CC2902C7B3004141A4 /* ToDoApp.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		9A6C536D28F9848300B13BF7 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		9A6C536F28F98CFD00B13BF7 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		9A6C537228F996E700B13BF7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		9AAB90CD2902C7B3004141A4 /* ToDoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoApp.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				9A6C535D28F97E5C00B13BF7 /* Assets.xcassets */,
 				9A6C535F28F97E5C00B13BF7 /* LaunchScreen.storyboard */,
 				9A6C536228F97E5C00B13BF7 /* Info.plist */,
+				9AAB90CC2902C7B3004141A4 /* ToDoApp.xcdatamodeld */,
 			);
 			path = ToDoApp;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				9A1FCCD22900A607001B1584 /* ToDoData+CoreDataClass.swift in Sources */,
 				9A6C537028F98CFD00B13BF7 /* ToDoTableViewCell.swift in Sources */,
 				9A1FCCD52900AAB1001B1584 /* CoreDataManager.swift in Sources */,
+				9AAB90CE2902C7B3004141A4 /* ToDoApp.xcdatamodeld in Sources */,
 				9A6C535228F97E5B00B13BF7 /* AppDelegate.swift in Sources */,
 				9A1FCCA328FE3958001B1584 /* UIColorExtension.swift in Sources */,
 				9A6C535428F97E5B00B13BF7 /* SceneDelegate.swift in Sources */,
@@ -430,6 +434,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9AAB90CC2902C7B3004141A4 /* ToDoApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9AAB90CD2902C7B3004141A4 /* ToDoApp.xcdatamodel */,
+			);
+			currentVersion = 9AAB90CD2902C7B3004141A4 /* ToDoApp.xcdatamodel */;
+			path = ToDoApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9A6C534628F97E5B00B13BF7 /* Project object */;
 }

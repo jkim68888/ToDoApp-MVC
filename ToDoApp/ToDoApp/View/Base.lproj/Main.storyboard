@@ -45,14 +45,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="GEg-Sf-Hl6">
-                                                    <rect key="frame" x="15" y="8" width="28" height="28"/>
+                                                    <rect key="frame" x="15" y="9.3333333333333357" width="25" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="28" id="Ge2-QJ-Gh8"/>
-                                                        <constraint firstAttribute="height" constant="28" id="zMr-4f-Z54"/>
+                                                        <constraint firstAttribute="width" constant="25" id="Ge2-QJ-Gh8"/>
+                                                        <constraint firstAttribute="height" constant="25" id="zMr-4f-Z54"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3O-yQ-Tjy">
-                                                    <rect key="frame" x="55" y="11.333333333333336" width="266" height="21"/>
+                                                    <rect key="frame" x="52" y="11.333333333333336" width="266" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="266" id="6qR-q1-jzJ"/>
                                                     </constraints>
@@ -61,10 +61,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="high" translatesAutoresizingMaskIntoConstraints="NO" id="OeV-2G-Szw">
-                                                    <rect key="frame" x="347" y="8" width="28" height="28"/>
+                                                    <rect key="frame" x="355" y="12" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="28" id="Axr-rZ-WxY"/>
-                                                        <constraint firstAttribute="height" constant="28" id="det-tX-bOl"/>
+                                                        <constraint firstAttribute="width" constant="20" id="Axr-rZ-WxY"/>
+                                                        <constraint firstAttribute="height" constant="20" id="det-tX-bOl"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>

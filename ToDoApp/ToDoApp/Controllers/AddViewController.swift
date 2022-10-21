@@ -102,6 +102,8 @@ class AddViewController: UIViewController {
 	}
 	
 	@IBAction func savButtonTapped(_ sender: UIButton) {
+		print("Add뷰", #function, self.toDoManager.getToDoData())
+		
 		let todoText = addTaskTextField.text
 		let priorityInt = priority
 		let success = UIAlertAction(title: "확인", style: .default)
@@ -120,7 +122,6 @@ class AddViewController: UIViewController {
 			present(priorityAlert, animated: true)
 		} else {
 			toDoManager.saveToDoData(taskText: todoText, priority: priorityInt, isComplete: false) {
-				print(#function, "저장완료")
 				self.dismiss(animated: true)
 			}
 		}
