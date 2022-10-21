@@ -140,7 +140,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="중요도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0p-ki-8mK">
-                                <rect key="frame" x="15.000000000000004" y="156.66666666666666" width="57.333333333333343" height="26.333333333333343"/>
+                                <rect key="frame" x="15.000000000000004" y="163.66666666666666" width="57.333333333333343" height="26.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -163,56 +163,68 @@
                                     <action selector="closeButtonTapped:" destination="OwZ-dd-LTz" eventType="touchUpInside" id="Ago-6M-PKj"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8gH-Pl-tPh">
-                                <rect key="frame" x="15" y="88.666666666666671" width="360" height="43.000000000000014"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="할일을 작성해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8gH-Pl-tPh">
+                                <rect key="frame" x="15" y="88.666666666666671" width="360" height="50.000000000000014"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="6HN-yj-jDM"/>
+                                    <constraint firstAttribute="height" constant="50" id="6HN-yj-jDM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iFE-Kz-cqD">
-                                <rect key="frame" x="15" y="208" width="360" height="46"/>
+                                <rect key="frame" x="15" y="215" width="360" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhl-CZ-v4H">
-                                        <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="46"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="높음">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="highPriorityButtonTapped:" destination="OwZ-dd-LTz" eventType="touchUpInside" id="pVs-5l-qaJ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7K-FB-Fi9">
-                                        <rect key="frame" x="126.66666666666666" y="0.0" width="106.66666666666666" height="46"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <rect key="frame" x="126.66666666666666" y="0.0" width="106.66666666666666" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="보통">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="normalPriorityButtonTapped:" destination="OwZ-dd-LTz" eventType="touchUpInside" id="UCj-lS-hI4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryp-rT-inO">
-                                        <rect key="frame" x="253.33333333333329" y="0.0" width="106.66666666666666" height="46"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <rect key="frame" x="253.33333333333329" y="0.0" width="106.66666666666666" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="낮음">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="lowPriorityButtonTapped:" destination="OwZ-dd-LTz" eventType="touchUpInside" id="1fS-WL-9yY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="UNs-hT-bT0"/>
+                                    <constraint firstAttribute="height" constant="50" id="UNs-hT-bT0"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIa-5L-OGu">
-                                <rect key="frame" x="15" y="279" width="360" height="40"/>
+                                <rect key="frame" x="15" y="290" width="360" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Aq1-jD-H7a"/>
+                                    <constraint firstAttribute="height" constant="50" id="Aq1-jD-H7a"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="저장">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="savButtonTapped:" destination="OwZ-dd-LTz" eventType="touchUpInside" id="MSO-cE-8UQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QnD-zh-px0"/>

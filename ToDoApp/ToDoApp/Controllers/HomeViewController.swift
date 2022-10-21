@@ -43,7 +43,6 @@ class HomeViewController: UIViewController {
 		} else {
 			emtyView.isHidden = true
 		}
-		
 	}
 	
 	@IBAction func editButtonTapped(_ sender: UIButton) {
