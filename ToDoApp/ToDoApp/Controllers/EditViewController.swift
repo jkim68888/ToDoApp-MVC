@@ -8,7 +8,11 @@
 import UIKit
 
 class EditViewController: UIViewController {
-
+	@IBOutlet weak var checkImageView: UIImageView!
+	@IBOutlet weak var taskLabel: UILabel!
+	@IBOutlet weak var taskPriorityImageView: UIImageView!
+	@IBOutlet weak var deleteButton: UIButton!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -16,4 +20,9 @@ class EditViewController: UIViewController {
 	@IBAction func completeButtonTapped(_ sender: UIButton) {
 		navigationController?.popViewController(animated: true)
 	}
+	
+	@IBAction func deleteButtonTapped(_ sender: UIButton) {
+		
+	}
+	
 }

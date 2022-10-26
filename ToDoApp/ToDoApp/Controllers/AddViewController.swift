@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SendUpdateDelegate {
+	func sendUpdate(todoList: [ToDoData])
+}
+
 class AddViewController: UIViewController {
 	@IBOutlet weak var addTaskTextField: UITextField!
 	@IBOutlet weak var highPriorityButton: UIButton!
@@ -15,6 +19,8 @@ class AddViewController: UIViewController {
 	@IBOutlet weak var saveButton: UIButton!
 	
 	let toDoManager = CoreDataManager.shared
+	
+	var delegate: SendUpdateDelegate?
 	
 	var priority: Int64 = 3
 	
@@ -29,6 +35,15 @@ class AddViewController: UIViewController {
 		self.view.frame.origin.y =  250
 		self.view.roundCorners(corners: [.topLeft, .topRight], radius: 30.0)
 		super.updateViewConstraints()
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		
+		let savedData = self.toDoManager.getToDoData()
+		
+		// home뷰컨으로 데이터 전달
+		delegate?.sendUpdate(todoList: savedData)
 	}
 	
 	func setPriorityButtonsStyle(buttons: [UIButton]) {
@@ -101,9 +116,7 @@ class AddViewController: UIViewController {
 		self.dismiss(animated: true)
 	}
 	
-	@IBAction func savButtonTapped(_ sender: UIButton) {
-		print("Add뷰", #function, self.toDoManager.getToDoData())
-		
+	@IBAction func savButtonTapped(_ sender: UIButton) {		
 		let todoText = addTaskTextField.text
 		let priorityInt = priority
 		let success = UIAlertAction(title: "확인", style: .default)
@@ -124,6 +137,7 @@ class AddViewController: UIViewController {
 			toDoManager.saveToDoData(taskText: todoText, priority: priorityInt, isComplete: false) {
 				self.dismiss(animated: true)
 			}
+			print("Add뷰", #function, self.toDoManager.getToDoData())
 		}
 	}
 }

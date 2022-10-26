@@ -14,10 +14,14 @@ class HomeViewController: UIViewController {
 	// 모델(저장 데이터를 관리하는 코어데이터)
 	let toDoManager = CoreDataManager.shared
 	
+	var todoList: [ToDoData]? = []
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setTableView()
 		setUI()
+		
+		todoList = toDoManager.getToDoData()
 	}
 	
 	// 화면에 다시 진입할때마다 테이블뷰 리로드
@@ -57,6 +61,23 @@ class HomeViewController: UIViewController {
 	@IBAction func addButtonTapped(_ sender: UIButton) {
 		performSegue(withIdentifier: "toAddView", sender: self)
 	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "toAddView" {
+			let viewController = segue.destination as! AddViewController
+			// protocol delegate 위임
+			viewController.delegate = self
+		}
+	}
+}
+
+// Add뷰컨에서 전달된 데이터 받기
+extension HomeViewController: SendUpdateDelegate {
+	func sendUpdate(todoList: [ToDoData]) {
+		self.todoList = todoList
+		
+		taskTableView.reloadData()
+	}
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -71,9 +92,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoTableViewCell", for: indexPath) as? ToDoTableViewCell else { return UITableViewCell() }
 		
-		let toDoData = toDoManager.getToDoData()
-		cell.toDoData = toDoData[indexPath.row]
-		
+		if let todoList = self.todoList {
+			cell.toDoData = todoList[indexPath.row]
+		}
+	
 		cell.selectionStyle = .none
 		
 		return cell

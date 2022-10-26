@@ -22,6 +22,7 @@
 		9A6C537028F98CFD00B13BF7 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C536F28F98CFD00B13BF7 /* ToDoTableViewCell.swift */; };
 		9A6C537328F996E700B13BF7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C537228F996E700B13BF7 /* UIViewExtension.swift */; };
 		9AAB90CE2902C7B3004141A4 /* ToDoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB90CC2902C7B3004141A4 /* ToDoApp.xcdatamodeld */; };
+		9AAB90D929094188004141A4 /* EditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB90D829094188004141A4 /* EditTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		9A6C536F28F98CFD00B13BF7 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		9A6C537228F996E700B13BF7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		9AAB90CD2902C7B3004141A4 /* ToDoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoApp.xcdatamodel; sourceTree = "<group>"; };
+		9AAB90D829094188004141A4 /* EditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				9A6C535728F97E5B00B13BF7 /* Main.storyboard */,
 				9A6C536F28F98CFD00B13BF7 /* ToDoTableViewCell.swift */,
+				9AAB90D829094188004141A4 /* EditTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A6C536C28F9831F00B13BF7 /* AddViewController.swift in Sources */,
+				9AAB90D929094188004141A4 /* EditTableViewCell.swift in Sources */,
 				9A6C535628F97E5B00B13BF7 /* HomeViewController.swift in Sources */,
 				9A6C536E28F9848300B13BF7 /* EditViewController.swift in Sources */,
 				9A1FCCD32900A607001B1584 /* ToDoData+CoreDataProperties.swift in Sources */,
@@ -358,6 +362,7 @@
 				DEVELOPMENT_TEAM = 6RZ3FF956G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "To Do List";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -390,6 +395,7 @@
 				DEVELOPMENT_TEAM = 6RZ3FF956G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "To Do List";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
