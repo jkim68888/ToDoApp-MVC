@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol SendUpdateDelegate {
-	func sendUpdate(todoList: [ToDoData])
+protocol SendAddedDataDelegate {
+	func sendAddedData(todoList: [ToDoData])
 }
 
 class AddViewController: UIViewController {
@@ -20,7 +20,7 @@ class AddViewController: UIViewController {
 	
 	let toDoManager = CoreDataManager.shared
 	
-	var delegate: SendUpdateDelegate?
+	var delegate: SendAddedDataDelegate?
 	
 	var priority: Int64 = 3
 	
@@ -43,7 +43,7 @@ class AddViewController: UIViewController {
 		let savedData = self.toDoManager.getToDoData()
 		
 		// home뷰컨으로 데이터 전달
-		delegate?.sendUpdate(todoList: savedData)
+		delegate?.sendAddedData(todoList: savedData)
 	}
 	
 	func setPriorityButtonsStyle(buttons: [UIButton]) {

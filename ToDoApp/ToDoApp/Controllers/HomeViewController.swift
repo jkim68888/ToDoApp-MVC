@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-	@IBOutlet weak var taskTableView: UITableView!
+	@IBOutlet weak var homeTableView: UITableView!
 	@IBOutlet weak var emtyView: UIImageView!
 	
 	// 모델(저장 데이터를 관리하는 코어데이터)
@@ -27,12 +27,12 @@ class HomeViewController: UIViewController {
 	// 화면에 다시 진입할때마다 테이블뷰 리로드
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		taskTableView.reloadData()
+		homeTableView.reloadData()
 	}
 	
 	func setTableView() {
-		taskTableView.delegate = self
-		taskTableView.dataSource = self
+		homeTableView.delegate = self
+		homeTableView.dataSource = self
 	}
 
 	func setUI() {
@@ -46,16 +46,15 @@ class HomeViewController: UIViewController {
 		
 		if toDoManager.getToDoData().isEmpty {
 			emtyView.isHidden = false
-			taskTableView.isHidden = true
+			homeTableView.isHidden = true
 		} else {
 			emtyView.isHidden = true
-			taskTableView.isHidden = false
+			homeTableView.isHidden = false
 		}
 	}
 	
 	@IBAction func editButtonTapped(_ sender: UIButton) {
 		performSegue(withIdentifier: "toEditView", sender: self)
-		
 	}
 	
 	@IBAction func addButtonTapped(_ sender: UIButton) {
@@ -68,15 +67,21 @@ class HomeViewController: UIViewController {
 			// protocol delegate 위임
 			viewController.delegate = self
 		}
+		if segue.identifier == "toEditView" {
+			let viewController = segue.destination as! EditViewController
+
+			viewController.todoList = self.todoList
+			
+		}
 	}
 }
 
 // Add뷰컨에서 전달된 데이터 받기
-extension HomeViewController: SendUpdateDelegate {
-	func sendUpdate(todoList: [ToDoData]) {
+extension HomeViewController: SendAddedDataDelegate {
+	func sendAddedData(todoList: [ToDoData]) {
 		self.todoList = todoList
 		
-		taskTableView.reloadData()
+		homeTableView.reloadData()
 	}
 }
 
@@ -84,13 +89,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
-		return toDoManager.getToDoData().count
+		guard let todoList = self.todoList else { return 0 }
+		
+		return todoList.count
 		
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoTableViewCell", for: indexPath) as? ToDoTableViewCell else { return UITableViewCell() }
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else { return UITableViewCell() }
 		
 		if let todoList = self.todoList {
 			cell.toDoData = todoList[indexPath.row]

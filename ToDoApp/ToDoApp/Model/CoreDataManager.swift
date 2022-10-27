@@ -74,6 +74,40 @@ final class CoreDataManager {
 		completion()
 	}
 	
+	// MARK: - [Update] 코어데이터에서 데이터 수정하기 (일치하는 데이터 찾아서 ===> 수정)
+	func updateToDoData(newToDoData: ToDoData) -> [ToDoData] {
+		var toDoList: [ToDoData] = []
+		// 임시저장소 있는지 확인
+		if let context = context {
+				// 요청서
+			let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
+			
+			do {
+				// 요청서를 통해서 데이터 가져오기
+				if let fetchedToDoList = try context.fetch(request) as? [ToDoData] {
+					// 배열의 첫번째
+					if var targetToDo = fetchedToDoList.first {
+						
+						// ToDoData에 실제 데이터 재할당(바꾸기) ⭐️
+						targetToDo = newToDoData
+						
+						if context.hasChanges {
+							do {
+								try context.save()
+								toDoList = fetchedToDoList
+							} catch {
+								print(error)
+							}
+						}
+					}
+				}
+			} catch {
+				print("지우는 것 실패")
+			}
+		}
+		return toDoList
+	}
+	
 	// MARK: - [Delete] 코어데이터에서 데이터 삭제하기 (일치하는 데이터 찾아서 ===> 삭제)
 	func deleteToDoData(data: ToDoData, completion: @escaping () -> Void) {
 		// 임시저장소 있는지 확인
