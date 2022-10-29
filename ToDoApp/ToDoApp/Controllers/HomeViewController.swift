@@ -10,6 +10,8 @@ import UIKit
 class HomeViewController: UIViewController {
 	@IBOutlet weak var homeTableView: UITableView!
 	@IBOutlet weak var emtyView: UIImageView!
+	@IBOutlet weak var editButton: UIButton!
+	@IBOutlet weak var checkImageView: UIImageView!
 	
 	// 모델(저장 데이터를 관리하는 코어데이터)
 	let toDoManager = CoreDataManager.shared
@@ -24,6 +26,8 @@ class HomeViewController: UIViewController {
 			self.setTableView()
 			self.setUI()
 		}
+		
+		setCheckImageGesture()
 	}
 	
 	// 화면에 다시 진입할때마다 테이블뷰 리로드
@@ -49,10 +53,31 @@ class HomeViewController: UIViewController {
 		if todoList.count == 0 {
 			emtyView.isHidden = false
 			homeTableView.isHidden = true
+			editButton.isHidden = true
 		} else {
 			emtyView.isHidden = true
 			homeTableView.isHidden = false
+			editButton.isHidden = false
 		}
+	}
+	
+	func setCheckImageGesture() {
+		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchToPickPhoto))
+		checkImageView.addGestureRecognizer(tapGesture)
+//		checkImageView.isUserInteractionEnable(true)
+	}
+	
+	@objc func touchToPickPhoto() {
+		//code
+		todoList?.forEach{
+			$0.isComplete = !$0.isComplete
+			
+			if $0.isComplete {
+				checkImageView.image = UIImage(named: "")
+			}
+			
+		}
+		
 	}
 	
 	@IBAction func editButtonTapped(_ sender: UIButton) {

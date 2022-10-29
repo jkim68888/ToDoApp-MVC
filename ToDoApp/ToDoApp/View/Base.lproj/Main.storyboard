@@ -119,6 +119,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="jFJ-gP-nXv"/>
                     <connections>
+                        <outlet property="checkImageView" destination="GEg-Sf-Hl6" id="YTI-9o-KEz"/>
+                        <outlet property="editButton" destination="kED-Xm-tMs" id="ohM-fK-S5u"/>
                         <outlet property="emtyView" destination="h09-HP-JBN" id="k9Y-hh-MW3"/>
                         <outlet property="homeTableView" destination="exw-3y-zh3" id="6CU-8B-mfa"/>
                         <segue destination="OwZ-dd-LTz" kind="presentation" identifier="toAddView" modalPresentationStyle="automatic" id="cVF-vL-S8n"/>
