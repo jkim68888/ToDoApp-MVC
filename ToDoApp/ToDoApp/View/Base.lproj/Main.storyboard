@@ -343,6 +343,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="전체 삭제"/>
                                 <connections>
                                     <action selector="deleteAllButton:" destination="uSZ-a7-MGT" eventType="touchUpInside" id="4oE-05-ORW"/>
+                                    <action selector="deleteAllButtonTapped:" destination="vhT-tr-r5H" eventType="touchUpInside" id="cl4-O8-0kC"/>
                                 </connections>
                             </button>
                         </subviews>

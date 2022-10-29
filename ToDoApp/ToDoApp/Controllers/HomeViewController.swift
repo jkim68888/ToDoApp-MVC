@@ -42,9 +42,9 @@ class HomeViewController: UIViewController {
 		emtyView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		emtyView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 		
-		print("홈뷰", #function, toDoManager.getToDoData())
+		guard let todoList = self.todoList else { return }
 		
-		if toDoManager.getToDoData().isEmpty {
+		if todoList.count == 0 {
 			emtyView.isHidden = false
 			homeTableView.isHidden = true
 		} else {
@@ -71,7 +71,7 @@ class HomeViewController: UIViewController {
 			let viewController = segue.destination as! EditViewController
 
 			viewController.todoList = self.todoList
-			
+			viewController.delegate = self
 		}
 	}
 }
@@ -80,7 +80,16 @@ class HomeViewController: UIViewController {
 extension HomeViewController: SendAddedDataDelegate {
 	func sendAddedData(todoList: [ToDoData]) {
 		self.todoList = todoList
-		
+		setUI()
+		homeTableView.reloadData()
+	}
+}
+
+// Edit뷰컨에서 전달된 데이터 받기
+extension HomeViewController: SendUpdatedDataDelegate {
+	func sendUpdatedData(todoList: [ToDoData]) {
+		self.todoList = todoList
+		setUI()
 		homeTableView.reloadData()
 	}
 }

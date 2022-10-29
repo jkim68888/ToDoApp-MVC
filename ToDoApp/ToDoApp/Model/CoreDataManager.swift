@@ -144,40 +144,19 @@ final class CoreDataManager {
 	}
 	
 	// MARK: - [DeleteAll] 코어데이터에서 데이터 모두 삭제하기
-	func deleteAll(data: ToDoData, completion: @escaping () -> Void) {
-		// List of multiple objects to delete
-		var objects: [NSManagedObject] = []
+	func deleteAllData(entity: String) {
+		let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
+		request.returnsObjectsAsFaults = false
 		
-		// 임시저장소 있는지 확인
 		if let context = context {
-			// 요청서
-			let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
-			
 			do {
-				// 요청서를 통해서 데이터 가져오기 (조건에 일치하는 데이터 찾기) (fetch메서드)
-				if let fetchedToDoList = try context.fetch(request) as? [ToDoData] {
-					objects = fetchedToDoList
-					
-					// 모든 데이터 지우기
-					for object in objects {
-						context.delete(object)
-					}
-					
-					//appDelegate?.saveContext() // 앱델리게이트의 메서드로 해도됨
-					if context.hasChanges {
-						do {
-							try context.save()
-							completion()
-						} catch {
-							print(error)
-							completion()
-						}
-					}
+				let results = try context.fetch(request)
+				
+				for object in results {
+					context.delete(object)
 				}
-				completion()
-			} catch {
-				print("전체삭제 실패")
-				completion()
+			} catch let error {
+				print("Detele all data in \(entity) error :", error)
 			}
 		}
 	}

@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol SendUpdatedDataDelegate {
+	func sendUpdatedData(todoList: [ToDoData])
+}
+
 class EditViewController: UIViewController {
 	@IBOutlet weak var editTableView: UITableView!
 	@IBOutlet weak var deleteAllButton: UIButton!
 	
 	let toDoManager = CoreDataManager.shared
+	
+	var delegate: SendUpdatedDataDelegate?
 	
 	var todoList: [ToDoData]?
 	
@@ -33,11 +39,23 @@ class EditViewController: UIViewController {
 	}
 	
 	func setUI() {
-		
+		deleteAllButton.layer.borderWidth = 1
+		deleteAllButton.layer.borderColor = UIColor.systemRed.cgColor
+		deleteAllButton.layer.cornerRadius = 5
 	}
 
 	@IBAction func completeButtonTapped(_ sender: UIButton) {
 		navigationController?.popViewController(animated: true)
+		
+		// home뷰컨으로 데이터 전달
+		guard let todoList = self.todoList else { return }
+		delegate?.sendUpdatedData(todoList: todoList)
+	}
+	
+	@IBAction func deleteAllButtonTapped(_ sender: UIButton) {
+		toDoManager.deleteAllData(entity: "ToDoData")
+		todoList = []
+		editTableView.reloadData()
 	}
 }
 
