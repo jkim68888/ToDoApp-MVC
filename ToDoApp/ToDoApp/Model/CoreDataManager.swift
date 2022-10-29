@@ -75,41 +75,38 @@ final class CoreDataManager {
 	}
 	
 	// MARK: - [Update] 코어데이터에서 데이터 수정하기 (일치하는 데이터 찾아서 ===> 수정)
-	func updateToDoData(newToDoData: ToDoData) -> [ToDoData] {
+	func updateToDoData(newToDoList: [ToDoData]) -> [ToDoData] {
 		var toDoList: [ToDoData] = []
 		// 임시저장소 있는지 확인
 		if let context = context {
-				// 요청서
+			// 요청서
 			let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
 			
 			do {
-				// 요청서를 통해서 데이터 가져오기
-				if let fetchedToDoList = try context.fetch(request) as? [ToDoData] {
-					// 배열의 첫번째
-					if var targetToDo = fetchedToDoList.first {
-						
-						// ToDoData에 실제 데이터 재할당(바꾸기) ⭐️
-						targetToDo = newToDoData
-						
-						if context.hasChanges {
-							do {
-								try context.save()
-								toDoList = fetchedToDoList
-							} catch {
-								print(error)
-							}
+				// 요청서를 통해서 데이터 가져오기 (조건에 일치하는 데이터 찾기) (fetch메서드)
+				if var fetchedToDoList = try context.fetch(request) as? [ToDoData] {
+					fetchedToDoList = newToDoList
+					toDoList = fetchedToDoList
+					
+					if context.hasChanges {
+						do {
+							try context.save()
+						} catch {
+							print(error)
+							
 						}
 					}
 				}
 			} catch {
-				print("지우는 것 실패")
+				print("삭제 실패")
 			}
 		}
 		return toDoList
 	}
 	
 	// MARK: - [Delete] 코어데이터에서 데이터 삭제하기 (일치하는 데이터 찾아서 ===> 삭제)
-	func deleteToDoData(data: ToDoData, completion: @escaping () -> Void) {
+	func deleteToDoData(index: Int) -> [ToDoData] {
+		var toDoList: [ToDoData] = []
 		// 임시저장소 있는지 확인
 		if let context = context {
 			// 요청서
@@ -118,29 +115,28 @@ final class CoreDataManager {
 			do {
 				// 요청서를 통해서 데이터 가져오기 (조건에 일치하는 데이터 찾기) (fetch메서드)
 				if let fetchedToDoList = try context.fetch(request) as? [ToDoData] {
-					
+					toDoList = fetchedToDoList
+					// 뷰컨에 보낼 변수 안에 데이터 지움
+					toDoList.remove(at: index)
 					// 임시저장소에서 (요청서를 통해서) 데이터 삭제하기 (delete메서드)
-					if let targetToDo = fetchedToDoList.first {
-						context.delete(targetToDo)
-						
-						//appDelegate?.saveContext() // 앱델리게이트의 메서드로 해도됨
-						if context.hasChanges {
-							do {
-								try context.save()
-								completion()
-							} catch {
-								print(error)
-								completion()
-							}
+					// db에서 지움
+					context.delete(fetchedToDoList[index])
+					
+					//appDelegate?.saveContext() // 앱델리게이트의 메서드로 해도됨
+					if context.hasChanges {
+						do {
+							try context.save()
+						} catch {
+							print(error)
+							
 						}
 					}
 				}
-				completion()
 			} catch {
 				print("삭제 실패")
-				completion()
 			}
 		}
+		return toDoList
 	}
 	
 	// MARK: - [DeleteAll] 코어데이터에서 데이터 모두 삭제하기

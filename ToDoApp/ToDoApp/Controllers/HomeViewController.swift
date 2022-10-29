@@ -18,10 +18,12 @@ class HomeViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setTableView()
-		setUI()
-		
 		todoList = toDoManager.getToDoData()
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+			self.setTableView()
+			self.setUI()
+		}
 	}
 	
 	// 화면에 다시 진입할때마다 테이블뷰 리로드

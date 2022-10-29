@@ -25,6 +25,10 @@ class EditViewController: UIViewController {
         super.viewDidLoad()
 		setTableView()
 		setUI()
+		// Drag & Drop 기능을 위한 부분
+		editTableView.dragInteractionEnabled = true
+		editTableView.dragDelegate = self
+		editTableView.dropDelegate = self
     }
 	
 	// 화면에 다시 진입할때마다 테이블뷰 리로드
@@ -59,6 +63,7 @@ class EditViewController: UIViewController {
 	}
 }
 
+// MARK: - UITableView UITableViewDelegate & UITableViewDataSource
 extension EditViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,7 +71,6 @@ extension EditViewController: UITableViewDelegate, UITableViewDataSource {
 		guard let todoList = self.todoList else { return 0 }
 		
 		return todoList.count
-		
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,7 +84,66 @@ extension EditViewController: UITableViewDelegate, UITableViewDataSource {
 		cell.selectionStyle = .none
 		
 		return cell
-		
 	}
 	
+	// 삭제
+	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		let action = UIContextualAction(style: .normal, title: "삭제") { (action, view, completion) in
+			// 데이터 삭제
+			let newToDoList = self.toDoManager.deleteToDoData(index: indexPath.row)
+			self.todoList = newToDoList
+			
+			// cell 삭제
+			tableView.deleteRows(at: [indexPath], with: .automatic)
+			
+			completion(true)
+		}
+		
+		action.backgroundColor = .systemRed
+		
+		let configuration = UISwipeActionsConfiguration(actions: [action])
+
+		return configuration
+	}
+	
+	// 이동
+	func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+		print("\(sourceIndexPath.row) -> \(destinationIndexPath.row)")
+		
+		guard var todoList = self.todoList else { return }
+		
+		let moveCell = todoList[sourceIndexPath.row]
+		
+		todoList.remove(at: sourceIndexPath.row)
+		todoList.insert(moveCell, at: destinationIndexPath.row)
+		
+		// 뷰컨 todoList에 바뀐 데이터 넣기
+		self.todoList = todoList
+		
+		// 데이터 업데이트
+		self.toDoManager.updateToDoData(newToDoList: todoList)
+	}
 }
+
+// MARK: - UITableView UITableViewDragDelegate
+extension EditViewController: UITableViewDragDelegate {
+	func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+		return [UIDragItem(itemProvider: NSItemProvider())]
+	}
+}
+
+// MARK: - UITableView UITableViewDropDelegate
+extension EditViewController: UITableViewDropDelegate {
+	
+	func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+		
+		if session.localDragSession != nil {
+			return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+		}
+		
+		return UITableViewDropProposal(operation: .cancel, intent: .unspecified)
+	}
+	
+	func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) { }
+}
+
