@@ -19,6 +19,7 @@ extension ToDoData {
     @NSManaged public var priority: Int64
     @NSManaged public var taskText: String?
     @NSManaged public var isComplete: Bool
+    @NSManaged public var orderId: Int64
 
 }
 

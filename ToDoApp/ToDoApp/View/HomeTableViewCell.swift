@@ -20,6 +20,16 @@ class HomeTableViewCell: UITableViewCell {
 			setData()
 		}
 	}
+
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		setImageGesture()
+	}
+	
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		taskLabel.attributedText = taskLabel.text?.removeStrikeThrough()
+	}
 	
 	override func layoutSubviews() {
 		super.layoutSubviews()
@@ -39,6 +49,30 @@ class HomeTableViewCell: UITableViewCell {
 			taskPriorityImageView.image = UIImage(named: "low")
 		default :
 			break
+		}
+	}
+	
+	func setImageGesture() {
+		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapImage))
+		checkImageView.addGestureRecognizer(tapGesture)
+		checkImageView.isUserInteractionEnabled = true
+	}
+	
+	@objc func onTapImage() {
+		if let todoData = toDoData {
+			todoData.isComplete = !todoData.isComplete
+			toDoData?.isComplete = todoData.isComplete
+			
+			toDoManager.updateToDoData(newToDoData: todoData)
+			print(todoData.isComplete)
+			
+			if todoData.isComplete {
+				checkImageView.image = UIImage(named: "checked")
+				taskLabel.attributedText = taskLabel.text?.strikeThrough()
+			} else {
+				checkImageView.image = UIImage(named: "unchecked")
+				taskLabel.attributedText = taskLabel.text?.removeStrikeThrough()
+			}
 		}
 	}
 }

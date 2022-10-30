@@ -31,6 +31,9 @@ final class CoreDataManager {
 			// 요청서
 			let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
 			
+			let sortDescriptor = [NSSortDescriptor.init(key: "orderId", ascending: true)]
+			request.sortDescriptors = sortDescriptor
+			
 			do {
 				// 임시저장소에서 (요청서를 통해서) 데이터 가져오기 (fetch메서드)
 				if let fetchedToDoList = try context.fetch(request) as? [ToDoData] {
@@ -45,7 +48,7 @@ final class CoreDataManager {
 	}
 	
 	// MARK: - [Create] 코어데이터에 데이터 생성하기
-	func saveToDoData(taskText: String?, priority: Int64, isComplete: Bool, completion: @escaping () -> Void) {
+	func saveToDoData(taskText: String?, priority: Int64, isComplete: Bool, orderId: Int64, completion: @escaping () -> Void) {
 		// 임시저장소 있는지 확인
 		if let context = context {
 			// 임시저장소에 있는 데이터를 그려줄 형태 파악하기
@@ -58,6 +61,9 @@ final class CoreDataManager {
 					toDoData.taskText = taskText
 					toDoData.priority = priority
 					toDoData.isComplete = isComplete
+					toDoData.orderId = orderId
+					
+					UserDefaults.standard.setValue(orderId + 1, forKey: "orderId")
 					
 					if context.hasChanges {
 						do {
@@ -74,9 +80,8 @@ final class CoreDataManager {
 		completion()
 	}
 	
-	// MARK: - [Update] 코어데이터에서 데이터 수정하기 (일치하는 데이터 찾아서 ===> 수정)
-	func updateToDoData(newToDoList: [ToDoData]) -> [ToDoData] {
-		var toDoList: [ToDoData] = []
+	// MARK: - [Update] 코어데이터에서 데이터리스트 업데이트
+	func updateToDoList(newToDoList: [ToDoData]) {
 		// 임시저장소 있는지 확인
 		if let context = context {
 			// 요청서
@@ -86,7 +91,6 @@ final class CoreDataManager {
 				// 요청서를 통해서 데이터 가져오기 (조건에 일치하는 데이터 찾기) (fetch메서드)
 				if var fetchedToDoList = try context.fetch(request) as? [ToDoData] {
 					fetchedToDoList = newToDoList
-					toDoList = fetchedToDoList
 					
 					if context.hasChanges {
 						do {
@@ -101,7 +105,35 @@ final class CoreDataManager {
 				print("삭제 실패")
 			}
 		}
-		return toDoList
+	}
+	
+	// MARK: - [Update] 코어데이터에서 데이터 업데이트
+	func updateToDoData(newToDoData: ToDoData) {
+//		var toDoData: ToDoData
+		// 임시저장소 있는지 확인
+		if let context = context {
+				// 요청서
+			let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
+			
+			do {
+				// 요청서를 통해서 데이터 가져오기 (조건에 일치하는 데이터 찾기) (fetch메서드)
+				if var fetchedToDoList = try context.fetch(request) as? [ToDoData] {
+					let index = fetchedToDoList.firstIndex(of: newToDoData)
+//					toDoData
+					
+					if context.hasChanges {
+						do {
+							try context.save()
+						} catch {
+							print(error)
+							
+						}
+					}
+				}
+			} catch {
+				print("삭제 실패")
+			}
+		}
 	}
 	
 	// MARK: - [Delete] 코어데이터에서 데이터 삭제하기 (일치하는 데이터 찾아서 ===> 삭제)

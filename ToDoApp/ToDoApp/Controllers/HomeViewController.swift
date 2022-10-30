@@ -11,7 +11,6 @@ class HomeViewController: UIViewController {
 	@IBOutlet weak var homeTableView: UITableView!
 	@IBOutlet weak var emtyView: UIImageView!
 	@IBOutlet weak var editButton: UIButton!
-	@IBOutlet weak var checkImageView: UIImageView!
 	
 	// 모델(저장 데이터를 관리하는 코어데이터)
 	let toDoManager = CoreDataManager.shared
@@ -26,8 +25,6 @@ class HomeViewController: UIViewController {
 			self.setTableView()
 			self.setUI()
 		}
-		
-		setCheckImageGesture()
 	}
 	
 	// 화면에 다시 진입할때마다 테이블뷰 리로드
@@ -61,25 +58,6 @@ class HomeViewController: UIViewController {
 		}
 	}
 	
-	func setCheckImageGesture() {
-		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchToPickPhoto))
-		checkImageView.addGestureRecognizer(tapGesture)
-//		checkImageView.isUserInteractionEnable(true)
-	}
-	
-	@objc func touchToPickPhoto() {
-		//code
-		todoList?.forEach{
-			$0.isComplete = !$0.isComplete
-			
-			if $0.isComplete {
-				checkImageView.image = UIImage(named: "")
-			}
-			
-		}
-		
-	}
-	
 	@IBAction func editButtonTapped(_ sender: UIButton) {
 		performSegue(withIdentifier: "toEditView", sender: self)
 	}
@@ -91,14 +69,20 @@ class HomeViewController: UIViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "toAddView" {
 			let viewController = segue.destination as! AddViewController
-			// protocol delegate 위임
+			
+			// SendAddedDataDelegate 위임
 			viewController.delegate = self
+			// Add뷰로 데이터 전달
+			viewController.todoList = self.todoList
 		}
 		if segue.identifier == "toEditView" {
 			let viewController = segue.destination as! EditViewController
 
+			// edit뷰로 데이터 전달
 			viewController.todoList = self.todoList
+			// SendUpdatedDataDelegate 위임
 			viewController.delegate = self
+			
 		}
 	}
 }
@@ -132,17 +116,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else { return UITableViewCell() }
 		
 		if let todoList = self.todoList {
 			cell.toDoData = todoList[indexPath.row]
+			
+			if let isComplete = cell.toDoData?.isComplete {
+				if isComplete {
+					cell.checkImageView.image = UIImage(named: "checked")
+					cell.taskLabel.attributedText = cell.taskLabel.text?.strikeThrough()
+				} else {
+					cell.checkImageView.image = UIImage(named: "unchecked")
+					cell.taskLabel.attributedText = cell.taskLabel.text?.removeStrikeThrough()
+				}
+				
+				print("홈뷰컨", isComplete)
+			}
 		}
-	
+		
 		cell.selectionStyle = .none
-		
-		return cell
-		
-	}
 	
+		return cell
+	}
 }

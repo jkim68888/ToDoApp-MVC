@@ -117,11 +117,16 @@ extension EditViewController: UITableViewDelegate, UITableViewDataSource {
 		todoList.remove(at: sourceIndexPath.row)
 		todoList.insert(moveCell, at: destinationIndexPath.row)
 		
-		// 뷰컨 todoList에 바뀐 데이터 넣기
-		self.todoList = todoList
+		// orderId 변경
+		todoList[destinationIndexPath.row].orderId = Int64(destinationIndexPath.row)
+		
+		todoList.enumerated().forEach { $1.orderId = Int64($0) }
 		
 		// 데이터 업데이트
-		self.toDoManager.updateToDoData(newToDoList: todoList)
+		self.toDoManager.updateToDoList(newToDoList: todoList)
+		
+		// 뷰컨 todoList에 바뀐 데이터 넣기
+		self.todoList = todoList
 	}
 }
 

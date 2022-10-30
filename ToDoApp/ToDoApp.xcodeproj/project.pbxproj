@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A1EB5C6290E3FD800C1CB2E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1EB5C5290E3FD800C1CB2E /* StringExtension.swift */; };
 		9A1FCCA328FE3958001B1584 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1FCCA228FE3957001B1584 /* UIColorExtension.swift */; };
 		9A1FCCD22900A607001B1584 /* ToDoData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1FCCD02900A607001B1584 /* ToDoData+CoreDataClass.swift */; };
 		9A1FCCD32900A607001B1584 /* ToDoData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1FCCD12900A607001B1584 /* ToDoData+CoreDataProperties.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A1EB5C5290E3FD800C1CB2E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		9A1FCCA228FE3957001B1584 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		9A1FCCD02900A607001B1584 /* ToDoData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9A1FCCD12900A607001B1584 /* ToDoData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoData+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				9A6C537228F996E700B13BF7 /* UIViewExtension.swift */,
 				9A1FCCA228FE3957001B1584 /* UIColorExtension.swift */,
+				9A1EB5C5290E3FD800C1CB2E /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				9A1FCCD22900A607001B1584 /* ToDoData+CoreDataClass.swift in Sources */,
 				9A6C537028F98CFD00B13BF7 /* HomeTableViewCell.swift in Sources */,
 				9A1FCCD52900AAB1001B1584 /* CoreDataManager.swift in Sources */,
+				9A1EB5C6290E3FD800C1CB2E /* StringExtension.swift in Sources */,
 				9AAB90CE2902C7B3004141A4 /* ToDoApp.xcdatamodeld in Sources */,
 				9A6C535228F97E5B00B13BF7 /* AppDelegate.swift in Sources */,
 				9A1FCCA328FE3958001B1584 /* UIColorExtension.swift in Sources */,

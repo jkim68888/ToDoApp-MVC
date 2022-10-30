@@ -22,6 +22,8 @@ class AddViewController: UIViewController {
 	
 	var delegate: SendAddedDataDelegate?
 	
+	var todoList: [ToDoData]?
+	
 	var priority: Int64 = 3
 	
 	override func viewDidLoad() {
@@ -40,7 +42,7 @@ class AddViewController: UIViewController {
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		
-		let savedData = self.toDoManager.getToDoData()
+		let savedData = toDoManager.getToDoData()
 		
 		// home뷰컨으로 데이터 전달
 		delegate?.sendAddedData(todoList: savedData)
@@ -134,10 +136,16 @@ class AddViewController: UIViewController {
 			priorityAlert.addAction(success)
 			present(priorityAlert, animated: true)
 		} else {
-			toDoManager.saveToDoData(taskText: todoText, priority: priorityInt, isComplete: false) {
+			var data = toDoManager.getToDoData()
+			
+			guard let todoList = self.todoList else { return }
+			data = todoList
+			
+			guard let orderId = UserDefaults.standard.value(forKey: "orderId") as? Int64 else { return }
+			
+			toDoManager.saveToDoData(taskText: todoText, priority: priorityInt, isComplete: false, orderId: orderId) {
 				self.dismiss(animated: true)
 			}
-			print("Add뷰", #function, self.toDoManager.getToDoData())
 		}
 	}
 }
