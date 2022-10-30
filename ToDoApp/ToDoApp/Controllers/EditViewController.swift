@@ -57,7 +57,7 @@ class EditViewController: UIViewController {
 	}
 	
 	@IBAction func deleteAllButtonTapped(_ sender: UIButton) {
-		toDoManager.deleteAllData(entity: "ToDoData")
+		toDoManager.deleteAllData()
 		todoList = []
 		editTableView.reloadData()
 	}

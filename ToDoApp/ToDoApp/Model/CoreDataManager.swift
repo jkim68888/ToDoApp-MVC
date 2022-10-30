@@ -160,7 +160,6 @@ final class CoreDataManager {
 							try context.save()
 						} catch {
 							print(error)
-							
 						}
 					}
 				}
@@ -172,7 +171,7 @@ final class CoreDataManager {
 	}
 	
 	// MARK: - [DeleteAll] 코어데이터에서 데이터 모두 삭제하기
-	func deleteAllData(entity: String) {
+	func deleteAllData() {
 		let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
 		request.returnsObjectsAsFaults = false
 		
@@ -183,8 +182,16 @@ final class CoreDataManager {
 				for object in results {
 					context.delete(object)
 				}
+				
+				if context.hasChanges {
+					do {
+						try context.save()
+					} catch {
+						print(error)
+					}
+				}
 			} catch let error {
-				print("Detele all data in \(entity) error :", error)
+				print("Detele all data error :", error)
 			}
 		}
 	}

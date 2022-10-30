@@ -11,6 +11,7 @@ class HomeViewController: UIViewController {
 	@IBOutlet weak var homeTableView: UITableView!
 	@IBOutlet weak var emtyView: UIImageView!
 	@IBOutlet weak var editButton: UIButton!
+	@IBOutlet weak var addButton: UIButton!
 	
 	// 모델(저장 데이터를 관리하는 코어데이터)
 	let toDoManager = CoreDataManager.shared
@@ -44,6 +45,9 @@ class HomeViewController: UIViewController {
 		emtyView.translatesAutoresizingMaskIntoConstraints = false
 		emtyView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		emtyView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		
+		addButton.backgroundColor = UIColor(hexString: "#A357D7")
+		addButton.layer.cornerRadius = 55 / 2
 		
 		guard let todoList = self.todoList else { return }
 		
@@ -82,7 +86,6 @@ class HomeViewController: UIViewController {
 			viewController.todoList = self.todoList
 			// SendUpdatedDataDelegate 위임
 			viewController.delegate = self
-			
 		}
 	}
 }
