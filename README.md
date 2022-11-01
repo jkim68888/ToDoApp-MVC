@@ -2,7 +2,7 @@
 
 ios 투두리스트 앱
 
-![Frame 25](https://user-images.githubusercontent.com/75922558/198905792-bde9df1f-ada9-45a1-8269-49030e345420.jpg)
+![Frame 25](https://user-images.githubusercontent.com/75922558/199185133-2055bf8c-ee69-4835-9143-572b9dcfd358.jpg)
 
 ## 🚀 어플리케이션 제작
 
