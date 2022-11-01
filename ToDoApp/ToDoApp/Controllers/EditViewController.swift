@@ -128,6 +128,12 @@ extension EditViewController: UITableViewDelegate, UITableViewDataSource {
 		// 뷰컨 todoList에 바뀐 데이터 넣기
 		self.todoList = todoList
 	}
+	
+	// 테이블뷰의 높이를 자동적으로 추청하도록 하는 메서드
+	// (ToDo에서 메세지가 길때는 셀의 높이를 더 높게 ==> 셀의 오토레이아웃 설정도 필요)
+	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		return UITableView.automaticDimension
+	}
 }
 
 // MARK: - UITableView UITableViewDragDelegate

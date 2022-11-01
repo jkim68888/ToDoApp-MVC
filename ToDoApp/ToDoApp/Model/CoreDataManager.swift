@@ -144,6 +144,9 @@ final class CoreDataManager {
 			// 요청서
 			let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
 			
+			let sortDescriptor = [NSSortDescriptor.init(key: "orderId", ascending: true)]
+			request.sortDescriptors = sortDescriptor
+			
 			do {
 				// 요청서를 통해서 데이터 가져오기 (조건에 일치하는 데이터 찾기) (fetch메서드)
 				if let fetchedToDoList = try context.fetch(request) as? [ToDoData] {
