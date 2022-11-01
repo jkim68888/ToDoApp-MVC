@@ -141,7 +141,13 @@ class AddViewController: UIViewController {
 			guard let todoList = self.todoList else { return }
 			data = todoList
 			
+			if todoList.count == 0 {
+				UserDefaults.standard.set(0, forKey: "orderId")
+			}
+			
 			guard let orderId = UserDefaults.standard.value(forKey: "orderId") as? Int64 else { return }
+			
+			print(orderId)
 			
 			toDoManager.saveToDoData(taskText: todoText, priority: priorityInt, isComplete: false, orderId: orderId) {
 				self.dismiss(animated: true)
