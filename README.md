@@ -20,4 +20,4 @@ ios 투두리스트 앱
 
 ## 📍 App Store 배포
 
-심사중
+https://apps.apple.com/kr/app/to-do-list-%ED%88%AC%EB%91%90%EB%A6%AC%EC%8A%A4%ED%8A%B8/id6444089142
